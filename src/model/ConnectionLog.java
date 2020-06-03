@@ -10,36 +10,38 @@ public class ConnectionLog {
     private int session;
     private String ip;
 
-    public ConnectionLog() {
-        Date date = new Date();
-        Calendar calendar = Calendar.getInstance();
-        calendar.setTime(date);
-        time = calendar.getTimeInMillis();
-
-        session = RandomizerUtill.getRandomForSession();
-
-        StringBuilder ipSB = new StringBuilder();
-        ipSB.append(RandomizerUtill.getRandomForIp());
-        for (int i = 0; i < 3; i++) {
-            ipSB.append(".");
-            ipSB.append(RandomizerUtill.getRandomForIp());
-        }
-        ip = ipSB.toString();
+    public ConnectionLog(long time, int session, String ip) {
+        this.time = time;
+        this.session = session;
+        this.ip = ip;
     }
 
     public String toString(){
-        return time + " " + session + " " + ip;
+        return time + " " + session + " " + ip + " ";
     }
 
 
+    public long getTime() {
+        return time;
+    }
 
+    public void setTime(long time) {
+        this.time = time;
+    }
 
+    public int getSession() {
+        return session;
+    }
 
+    public void setSession(int session) {
+        this.session = session;
+    }
 
+    public String getIp() {
+        return ip;
+    }
 
-
-
-
-
-
+    public void setIp(String ip) {
+        this.ip = ip;
+    }
 }
