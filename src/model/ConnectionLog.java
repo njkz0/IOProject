@@ -10,6 +10,10 @@ public class ConnectionLog {
     private int session;
     private String ip;
 
+    public ConnectionLog() {
+
+    }
+
     public ConnectionLog(long time, int session, String ip) {
         this.time = time;
         this.session = session;

@@ -8,6 +8,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
+
 public class FileService {
 
 
@@ -94,12 +95,12 @@ public class FileService {
         return listResult;
     }
 
-  public static void removeOldLogs(String fileName,long timeFrom){
+  public static void removeOldLogs(String fileName,long timeHowOld){
       Date date = new Date();
       Calendar calendar = Calendar.getInstance();
       calendar.setTime(date);
       long timeNow = calendar.getTimeInMillis();
-      List<ConnectionLog>logs=sortLogsByMillies(fileName, timeNow-timeFrom, timeNow);
+      List<ConnectionLog>logs=sortLogsByMillies(fileName, timeNow-timeHowOld, timeNow);
       boolean append=false;
       for(int i=0; i<logs.size(); i++){
           writeTextToFile(fileName, logs.get(i),append);
