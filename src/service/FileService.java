@@ -94,14 +94,16 @@ public class FileService {
         return listResult;
     }
 
-  public static void removeLogsOlderThreeDays(String fileName){
+  public static void removeOldLogs(String fileName,long timeFrom){
       Date date = new Date();
       Calendar calendar = Calendar.getInstance();
       calendar.setTime(date);
       long timeNow = calendar.getTimeInMillis();
-      List<ConnectionLog>logs=sortLogsByMillies(fileName, timeNow-259200000, timeNow);
+      List<ConnectionLog>logs=sortLogsByMillies(fileName, timeNow-timeFrom, timeNow);
+      boolean append=false;
       for(int i=0; i<logs.size(); i++){
-          writeTextToFile(fileName, logs.get(i),false);
+          writeTextToFile(fileName, logs.get(i),append);
+          append=true;
       }
 
   }

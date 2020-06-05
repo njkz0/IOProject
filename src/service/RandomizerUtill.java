@@ -4,13 +4,7 @@ import java.util.Random;
 
 public class RandomizerUtill {
 
-
-    public static int getRandomForIp(){
-        return new Random().nextInt(255);
-    }
-
-
-    public static int getRandomForSession(){
-        return new Random().nextInt(999999999);
+    public static int getRandomInt(int min, int max) {
+        return min + new Random().nextInt(max - min);
     }
 }

@@ -19,13 +19,13 @@ public class WorkWithFiles {
             calendar.setTime(date);
             long time = calendar.getTimeInMillis();
 
-            int session = RandomizerUtill.getRandomForSession();
+            int session = RandomizerUtill.getRandomInt(0, 999999999);
 
             StringBuilder ipSB = new StringBuilder();
-            ipSB.append(RandomizerUtill.getRandomForIp());
+            ipSB.append(RandomizerUtill.getRandomInt(1, 255));
             for (int n = 0; n < 3; n++) {
                 ipSB.append(".");
-                ipSB.append(RandomizerUtill.getRandomForIp());
+                ipSB.append(RandomizerUtill.getRandomInt(1, 255));
             }
             String ip = ipSB.toString();
             ConnectionLog cl = new ConnectionLog(time, session, ip);
@@ -34,6 +34,6 @@ public class WorkWithFiles {
 
 
         FileService.getConnectionLogFromFile(fileName);
-        System.out.println(FileService.sortLogsByMillies(fileName, 1591214482520l, 1591214482520l).size());
+       FileService.removeOldLogs(fileName, 259200000l);
     }
 }
