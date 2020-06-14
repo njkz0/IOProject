@@ -1,6 +1,7 @@
 import model.ConnectionLog;
 import service.FileService;
 import service.RandomizerUtill;
+import threads.LogThread;
 
 import java.util.Calendar;
 import java.util.Date;
@@ -35,7 +36,10 @@ public class WorkWithFiles {
 
 
         List<ConnectionLog>ll= FileService.sortLogsByMillies(fileName, 1591370219021l, 1591370219021l);
-        System.out.println(ll.size());
+
        FileService.removeOldLogs(fileName, 1591370219021l);
+       new LogThread();
+       new LogThread();
+       new LogThread();
     }
 }
