@@ -12,7 +12,7 @@ import java.util.List;
 public class FileService {
 
 
-    public static void writeTextToFile(String fileName, ConnectionLog connectionLog, boolean append) {
+     synchronized public static void writeTextToFile(String fileName, ConnectionLog connectionLog, boolean append) {
         StringBuilder text = new StringBuilder();
         text.append(connectionLog.toString());
 

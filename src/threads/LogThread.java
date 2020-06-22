@@ -13,9 +13,7 @@ public class LogThread extends Thread {
 
     String fileName = userDir + separator + "files" + separator + "test.txt";
 
-    public LogThread() {
-        start();
-    }
+
 
 
     @Override
